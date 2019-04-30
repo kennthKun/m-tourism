@@ -4,7 +4,9 @@
 		<div class="item-content"></div>
 		<div class="nav-box">
 			<div class="nav-list" v-for="item in navImg">
-				<img class="nav-img" src="@/assets/pic/download.png" alt="" />
+				<router-link :to="item.path">
+					<img class="nav-img" :src="item.img" alt="" />
+				</router-link>
 			</div>
 		</div>
 		<div class="ticket_main">
@@ -104,10 +106,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="foot_btn clearfix">
-			<p>CopyRight©2016 张网旅游 Inc.</p>
-			<p style="color:#999;">技术支持：张网旅游</p>
-		</div>
+		<clearfix></clearfix>
+		<div style="height: 2.5rem;"></div>
 		<footer-nav></footer-nav>
 	</div>
 </template>
@@ -115,20 +115,23 @@
 <script>
 	import headerBanner from '@/components/common/banner'
 	import footerNav from '@/components/common/footer-nav'
+	import clearfix from '@/components/common/clearfix'
+	
+	
 	export default{
 		data(){
 			return{
 				value:'',
 				selected:'1',
 				navImg:[
-					'@/assets/pic/download.png',
-					'@/assets/pic/download-1.png',
-					'@/assets/pic/download-2.png',
-					'@/assets/pic/download-3.png',
-					'@/assets/pic/download-4.png',
-					'@/assets/pic/download-5.png',
-					'@/assets/pic/download-6.png',
-					'@/assets/pic/download-7.png',
+					{img:'../../../static/pic/download.png',path:'/raiders/all'},
+					{img:'../../../static/pic/download-1.png',path:'/specialty/all'},
+					{img:'../../../static/pic/download-2.png',path:'/cars/all'},
+					{img:'../../../static/pic/download-3.png',path:'/guiders/all'},
+					{img:'../../../static/pic/download-4.png',path:'/lines/all'},
+					{img:'../../../static/pic/download-5.png',path:'/foods/all'},
+					{img:'../../../static/pic/download-6.png',path:'/hotels/all'},
+					{img:'../../../static/pic/download-7.png',path:'/spots/all'},
 				]
 			}
 		},
@@ -136,18 +139,21 @@
    	},
 		components: {
 	    headerBanner,
-	    footerNav
+	    footerNav,
+	    clearfix
 	  },
 	}
 </script>
 
-<style lang="scss" type="text/css">
-	.nav-box{display: flex;align-items: center;flex-wrap: wrap;background-color: #EDE6DC;
+<style lang="scss" type="text/css" scoped="scoped">
+	$color1:#EDE6DC;
+	$color2:#D9CDB4;
+	.nav-box{display: flex;align-items: center;flex-wrap: wrap;background-color: $color1;
 		.nav-list{width: 25%;padding: 10px;box-sizing: border-box;
 			.nav-img{width: 100%;background: #A4967C;border: 0.1rem solid #A4967C;border-radius: 0.4rem;box-sizing: border-box;}
 		}
 	}
-	.ticket_main{padding: 10px 0;background: #D9CDB4;
+	.ticket_main{padding: 10px 0;background: $color2;
 		.spots_tit{padding-bottom: 10px;}
 		.content-block{padding: 0 10px;display: flex;align-items: center;justify-content: space-around;
 			.list{width: 30%;overflow: hidden;display:flex;flex-direction: column;min-height: 6.53rem;
@@ -158,7 +164,7 @@
 			}
 		}
 	}
-	.p_main{padding: 10px 0;background: #EDE6DC;
+	.p_main{padding: 10px 0;background: $color1;
 		.spots_tit{padding-bottom: 10px;}
 		.content-block{display: flex;align-items: center;justify-content: space-around;
 			.list{width: 45%;overflow: hidden;
@@ -166,7 +172,7 @@
 			}
 		}
 	}
-	.acco_main{padding: 10px 0;background: #D9CDB4;
+	.acco_main{padding: 10px 0;background: $color2;
 		.spots_tit{padding-bottom: 10px;}
 		.content-block{padding: 0 10px;display: flex;align-items: center;justify-content: space-around;
 			.list{width: 30%;overflow: hidden;display:flex;flex-direction: column;min-height: 6.53rem;
@@ -181,10 +187,10 @@
 		}
 	}
 	
-	.tab_main{background: #EDE6DC;padding: 1rem 0.75rem;margin: 0px;
+	.tab_main{background: $color1;padding: 1rem 0.75rem;margin: 0px;
 		.spots_tit{border-bottom:1px solid #D6d6d6;padding: 0rem 2rem;
 			.mint-navbar{
-				background: #EDE6DC;
+				background: $color1;
 				.mint-tab-item{color: #5f646e;border-bottom:2px solid transparent}
 				.mint-tab-item.is-selected{border-color: #377c67;color: #377c67;margin-bottom:0}
 				.item-inner{ padding-bottom: 0.3rem;padding-top: 0.3rem;box-sizing: border-box;
@@ -194,15 +200,16 @@
 		}
 		.tabs{margin: 0.75rem 0rem;
 			.tab{margin-bottom: 0.5rem;background-color: #FFF;display: flex;
-				.item-media{ 
+				.item-media{width: 6.5rem; 
 					img{width: 6.5rem;min-height: 4.35rem;}
 				}
+				.item-inner{padding-left: 10px;box-sizing: border-box;
+					.item-title-row{line-height: 1rem;font-size: 0.6rem;color: #333;font-weight: 500;flex-shrink: 1;white-space: nowrap;position: relative;overflow: hidden;text-overflow: ellipsis;max-width: 100%;text-align: left;}
+					.item-text{font-family: 宋体;color: #999;margin-top: 0.4rem;height: 1.6rem;line-height: 0.8rem;font-size: 0.5rem;position: relative;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;
+				}
+				}
+				
 			}
 		}
-	}
-	.foot_btn{
-		padding: 15px 0;
-		background: #EDE6DC;
-		padding-bottom: 65px;
 	}
 </style>

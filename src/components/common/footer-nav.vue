@@ -8,7 +8,7 @@
 <script>
 </script>
 
-<style>
+<style scoped="scoped">
 	.footer{
 		background: #fff;height: 2.5rem;position: fixed;bottom: 0;width: 100%;display: flex;align-items: center;justify-content: space-around;
 	}

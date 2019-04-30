@@ -1,7 +1,7 @@
 <template>
 	<div class="carousel" @mouseenter="enter" @mouseleave="leave">
 		<transition-group tag="ul" name="image"  :enter-active-class="animate[mark].inanimate" :leave-active-class="animate[mark].outanimate">
-			<li v-for='(image,index) in img' :key='index' v-show="index === mark">
+			<li v-for='(image,index) in img' :key='image' v-show="index === mark">
 				<a href="javascript:;">
 					<img :src="image">
 				</a>
@@ -81,7 +81,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	
 	li {
 		list-style: none;
