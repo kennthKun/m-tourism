@@ -118,30 +118,28 @@
 	import clearfix from '@/components/common/clearfix'
 	
 	
+	
 	export default{
 		data(){
 			return{
 				value:'',
 				selected:'1',
 				navImg:[
-					{img:'../../../static/pic/download.png',path:'/raiders/all'},
-					{img:'../../../static/pic/download-1.png',path:'/specialty/all'},
-					{img:'../../../static/pic/download-2.png',path:'/cars/all'},
-					{img:'../../../static/pic/download-3.png',path:'/guiders/all'},
-					{img:'../../../static/pic/download-4.png',path:'/lines/all'},
-					{img:'../../../static/pic/download-5.png',path:'/foods/all'},
-					{img:'../../../static/pic/download-6.png',path:'/hotels/all'},
 					{img:'../../../static/pic/download-7.png',path:'/spots/all'},
+					{img:'../../../static/pic/download-6.png',path:'/hotels/all'},
+					{img:'../../../static/pic/download-5.png',path:'/foods/all'},
+					{img:'../../../static/pic/download-4.png',path:'/lines/all'},
+					{img:'../../../static/pic/download-3.png',path:'/guiders/all'},
+					{img:'../../../static/pic/download-2.png',path:'/cars/all'},
+					{img:'../../../static/pic/download-1.png',path:'/specialty/all'},
+					{img:'../../../static/pic/download.png',path:'/raiders/all'},
 				]
 			}
 		},
 		methods: {
+			
    	},
-		components: {
-	    headerBanner,
-	    footerNav,
-	    clearfix
-	  },
+		components: {headerBanner,footerNav,clearfix},
 	}
 </script>
 

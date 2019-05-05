@@ -57,13 +57,15 @@
 				<div class="item-bottom-right"><span>￥</span><span class="price">30</span>起<div class="del"><del>￥30</del></div></div>
 			</li>
 		</ul>
+		<!--<clearfix></clearfix>
+		<div style="height: 2.5rem;"></div>-->
 	</div>
 </template>
 
 <script>
 	import searchView from '@/components/common/search'
 	import topTitle from '@/components/common/topTitle'
-	
+//	import clearfix from '@/components/common/clearfix'
 	export default{
 		name:'spotsList',
 		data(){

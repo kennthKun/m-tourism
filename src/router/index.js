@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/components/page/index'
+import login from '@/components/page/login/login'
+import registered from '@/components/page/login/registered'
+import myCenter from '@/components/common/myCenter'
+
 import spots from '@/components/page/spots/all'//买门票
 import spotsList from '@/components/page/spots/list'//门票列表
 import spotsDetails from '@/components/page/spots/details'//门票列表
@@ -24,12 +28,24 @@ export default new Router({
       name: '首页',
       component: index
     },{
+    		path:'/myCenter',
+    		name: '个人中心',
+      component: myCenter
+    },{
+    		path:'/login',
+    		component:login,
+    		name:'登录'
+    },{
+    		path:'/registered',
+    		component:registered,
+    		name:'注册'
+    },{
     		path:'/spots/all',
     		component:spots,
        name:'门票',
     },{
     		path:'/spots/spotsDetails',
-    		compinent:spotsDetails,
+    		component:spotsDetails,
     		name:'买门票'
     },{
     		path:'/spots/spotsList',

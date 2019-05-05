@@ -3,7 +3,10 @@
 	  <router-link to="" slot="left">
 	    <mt-button icon="back" @click='back'>返回</mt-button>
 	  </router-link>
-	  <mt-button icon="more" slot="right"></mt-button>
+	  <!--<mt-button icon="more" slot="right"></mt-button>-->
+	  <mt-button slot="right">
+		  <img src="../../../static/people.png" height="20" width="20" slot="icon">
+		</mt-button>
 	</mt-header>
 </template>
 
@@ -15,6 +18,7 @@
 			}
 		},
 		created(){
+			console.log(this.$route.name)
 			this.title = this.$route.name
 		},
 		methods:{

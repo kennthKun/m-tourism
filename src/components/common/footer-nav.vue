@@ -1,11 +1,20 @@
 <template>
 	<div class="footer">
 		<div style="color: #377C67;"><div class="yaqin yq_ziyuan"></div>首页</div>
-		<div><div class="yaqin yq_gerenzhongxin1"></div>会员中心</div>
+		<div @click="clickbtn"><div class="yaqin yq_gerenzhongxin1"></div>会员中心</div>
 	</div>
 </template>
 
 <script>
+	import store from "@/store"
+	export default{
+		methods:{
+			clickbtn(){
+				store.commit('updatamyRight',0)
+				console.log(store.state.myRight)
+			}
+		}
+	}
 </script>
 
 <style scoped="scoped">

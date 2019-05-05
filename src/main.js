@@ -6,11 +6,19 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+import axios from 'axios'
+
 Vue.use(MintUI)
 Vue.config.productionTip = false
 import '@/assets/reset.css'
 import '@/assets/animate.min.css'
 /* eslint-disable no-new */
+
+
+axios.defaults.baseURL = 'api/';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+Vue.prototype.axios = axios;
+
 new Vue({
   el: '#app',
   router,

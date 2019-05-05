@@ -1,7 +1,7 @@
 <template>
 	<div class="foot_btn clearfix">
-			<p>CopyRight©2016 张网旅游 Inc.</p>
-			<p style="color:#999;">技术支持：张网旅游</p>
+			<p>CopyRight©2019</p>
+			<p style="color:#999;">技术支持：</p>
 		</div>
 </template>
 
@@ -11,7 +11,8 @@
 <style scoped="scoped">
 	.foot_btn{
 		padding: 15px 0;
-		background: $color1;
-		/*padding-bottom: 5px;*/
+		background: #EDE6DC;
+		
+		padding-bottom: 5px;
 	}
 </style>
