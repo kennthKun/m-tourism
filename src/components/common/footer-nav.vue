@@ -6,12 +6,12 @@
 </template>
 
 <script>
-	import store from "@/store"
 	export default{
 		methods:{
 			clickbtn(){
-				store.commit('updatamyRight',0)
-				console.log(store.state.myRight)
+				this.$router.push({
+          path:'/login'
+				})
 			}
 		}
 	}

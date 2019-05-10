@@ -4,8 +4,8 @@
 	    <mt-button icon="back" @click='back'>返回</mt-button>
 	  </router-link>
 	  <!--<mt-button icon="more" slot="right"></mt-button>-->
-	  <mt-button slot="right" @click='mycenter'>
-		  <img src="../../../static/people.png" height="20" width="20" slot="icon">
+	  <mt-button slot="right" @click='registered'>
+		  注册
 		</mt-button>
 	</mt-header>
 </template>
@@ -25,10 +25,10 @@
 			back(){
 				this.$router.go(-1);
 			},
-			mycenter(){
+			registered(){
 				this.$router.push({
-			        path:'/myCenter'
-						})
+          path:'/registered'
+				})
 			}
 		}
 	}

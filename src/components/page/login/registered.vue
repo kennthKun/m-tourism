@@ -56,5 +56,5 @@ $color2:#D9CDB4;
 	p{display: flex;align-items: center;height: 50px;}
 	p:first-child{border-bottom: 1px solid #f3f3f3}
 	input{line-height: 35px;flex: 1;padding: 0 10px;box-sizing: border-box;}
-	#loginBtn{width: 80%;line-height: 45px;text-align: center;background: #006AFF;color: #fff;border-radius: 4px;font-size: 16px;margin-top: 30px;}
+	#loginBtn{width: 80%;line-height: 45px;text-align: center;background: #D9CDB4;color: #fff;border-radius: 4px;font-size: 16px;margin-top: 30px;}
 </style>

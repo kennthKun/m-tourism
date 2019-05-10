@@ -12,7 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
     		'/api/**': {
-        target: 'http://localhost:3000/',
+//      target: 'http://localhost:3000/',
+        target: 'http://yaqin.ckun.vip:3000/',
         secure: false,
         changeOrigin: true,
         pathRewrite:{
