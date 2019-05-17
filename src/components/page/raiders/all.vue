@@ -3,37 +3,12 @@
 		<top-title></top-title>
 		<search-view></search-view>
 		<ul class="result_list">
-			<li class="item-li" @click="jump">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
+			<li class="item-li" @click="jump(item.id)" v-for="item in list">
+				<div class="item-img"><img :src="item.imageList"/></div>
 				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
+					<div class="item-title-row">{{item.title}}</div>
 					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
-				</div>
-			</li>
-			
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
-				</div>
-			</li>
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
-				</div>
-			</li>
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
+					<div class="item-subtitle">{{item.display_time}}</div>
 				</div>
 			</li>
 		</ul>
@@ -50,20 +25,39 @@
 		name:'',
 		data(){
 			return{
-				title:''
+				title:'',
+				list:[]
 			}
 		},
 		created(){
-			this.title = this.$route.name
+//			this.title = this.$route.name
+			this.getlist()
 		},
 		components:{
 			searchView,topTitle
 		},
 		methods: {
-			jump(){
+			jump(id){
 				this.$router.push({
-          path:'/spots/spotsDetails'
+          path:'/raiders/details?id='+id
 				})
+			},
+			getlist(){
+				this.axios.get('api2/specialty/api?type=2')
+				.then(response=>{
+					this.list = response.data.data
+					for (let x of this.list){
+						console.log(x.imageList);
+						x.imageList = "http://yaqin.ckun.vip/"+x.imageList.split(',')[0]
+						var d = x.display_time
+						console.log(d)
+//						console.log(ztime)
+//						x.display_time = x.display_time.getFullYear()+"-"+(x.display_time.getMonth()+1)+"-"+x.display_time.getDay()
+					}
+//					console.log(this.list)
+				}).catch(error=>{
+          console.log(error)
+        })
 			}
 			
    	},

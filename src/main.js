@@ -15,8 +15,18 @@ import '@/assets/animate.min.css'
 /* eslint-disable no-new */
 
 
-axios.defaults.baseURL = 'api/';
+//axios.defaults.baseURL = 'api/';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+router.beforeEach((to,from,next)=>{
+	console.log("befor each invoked")
+	if(localStorage.getItem('userInfo') || to.fullPath === '/login' ||to.fullPath === '/'||to.fullPath === '/registered'){
+		next()
+	}else{
+		next('/login')
+	}
+//	next()
+})
+
 Vue.prototype.axios = axios;
 
 new Vue({

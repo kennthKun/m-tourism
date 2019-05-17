@@ -22,11 +22,11 @@
 			return {
 				mark: 0,
 				img: [
-					'https://www.0744.cn/uploads/2016/0919/23020093c650e4be3ac0b6b4c82cd433_640x300.jpg',
-					'https://www.0744.cn/uploads/2016/0919/d413c3f64ebce2279e2fd17e0e06d679_640x300.jpg',
-					'https://www.0744.cn/uploads/2016/0923/7e01a5298a1091f68b3f4d1c601dd46c_640x300.jpg',
-					'https://www.0744.cn/uploads/2016/0919/8d89b84fcf4f16cd53d9632652fcb438_640x300.jpg',
-					'https://www.0744.cn/uploads/2016/0919/67cd5ac0e9993670fa8ab0274949f161_640x300.jpg'
+					'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1059779473,979169889&fm=26&gp=0.jpg',
+					'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806239282&di=fee760e586de5b17cb2dc28dcca8027d&imgtype=0&src=http%3A%2F%2Fwww.lvyougl.com%2Fditu%2Fimg%2F%25E5%25BF%25BB%25E5%25B7%259E.jpg',
+					'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557807077200&di=a7b4eac99c49412eff3ec0c4a75bad85&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F96fe2f2873f962a5c156e2e88fac5bfc2a6377121c90e-kOUJT7_fw658',
+					'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2010380425,3595871570&fm=26&gp=0.jpg',
+					'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1768300561,4192491366&fm=26&gp=0.jpg'
 				],
 				animate:[
 					{inanimate:'animated rollIn',outanimate:'animated zoomOutLeft'},

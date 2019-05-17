@@ -10,7 +10,7 @@
 		methods:{
 			clickbtn(){
 				this.$router.push({
-          path:'/login'
+          path:'/myCenter'
 				})
 			}
 		}

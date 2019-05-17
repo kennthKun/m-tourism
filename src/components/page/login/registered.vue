@@ -25,7 +25,7 @@
 				var params = new URLSearchParams();
 				params.append('data',[this.username,this.password]);
         	
-				this.axios.post('/registered', params)
+				this.axios.post('/api/registered', params)
 				.then(response=>{
 					console.log(response)
 					if(response.data.code == 0){

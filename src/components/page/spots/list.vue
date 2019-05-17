@@ -3,59 +3,20 @@
 		<top-title></top-title>
 		<search-view></search-view>
 		<ul class="result_list">
-			<li class="item-li" @click="jump">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0925/a3932f6d9992e75b613b9c9b9e6c3efc_200x140.jpg"/></div>
+			
+			<li class="item-li" v-for="item in list" @click="jump(item.id)">
+				<div class="item-img"><img :src="item.imageList"/></div>
 				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
+					<div class="item-title-row">{{item.name}}</div>
 					<div class="item-subtitle">100% 满意</div>
 					<div class="item-subtitle attr">
-          		<span>风景名胜</span>
-          		<span>自然风光</span>
-          		<span>AAAAA</span>
+          		<span>{{item.category}}</span>
+          		<span>{{item.level}}</span>
            </div>
 				</div>
-				<div class="item-bottom-right"><span>￥</span><span class="price">30</span>起<div class="del"><del>￥30</del></div></div>
+				<div class="item-bottom-right"><span>￥</span><span class="price">{{item.price}}</span>起<div class="del"><!--<del>￥330</del>--></div></div>
 			</li>
 			
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0925/a3932f6d9992e75b613b9c9b9e6c3efc_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle attr">
-          		<span>风景名胜</span>
-          		<span>自然风光</span>
-          		<span>AAAAA</span>
-           </div>
-				</div>
-				<div class="item-bottom-right"><span>￥</span><span class="price">30</span>起<div class="del"><del>￥30</del></div></div>
-			</li>
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0925/a3932f6d9992e75b613b9c9b9e6c3efc_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle attr">
-          		<span>风景名胜</span>
-          		<span>自然风光</span>
-          		<span>AAAAA</span>
-           </div>
-				</div>
-				<div class="item-bottom-right"><span>￥</span><span class="price">30</span>起<div class="del"><del>￥30</del></div></div>
-			</li>
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0925/a3932f6d9992e75b613b9c9b9e6c3efc_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle attr">
-          		<span>风景名胜</span>
-          		<span>自然风光</span>
-          		<span>AAAAA</span>
-           </div>
-				</div>
-				<div class="item-bottom-right"><span>￥</span><span class="price">30</span>起<div class="del"><del>￥30</del></div></div>
-			</li>
 		</ul>
 		<!--<clearfix></clearfix>
 		<div style="height: 2.5rem;"></div>-->
@@ -70,22 +31,39 @@
 		name:'spotsList',
 		data(){
 			return{
-				title:''
+				title:'',
+				list:[],
 			}
 		},
 		created(){
 			this.title = this.$route.name
+			this.getlist()
 		},
 		components:{
 			searchView,topTitle
 		},
 		methods: {
-			jump(){
+			jump(id){
+				console.log(id)
 				this.$router.push({
-          path:'/spots/spotsDetails'
+          path:'/spots/spotsDetails?id='+id
 				})
+			},
+			getlist(){
+				console.log(this.$route.query.type)
+				this.axios.get('/api/scenic/api?type='+this.$route.query.type)
+				.then(response=>{
+					this.list = response.data.data
+					for (let x of this.list){
+						console.log(x.imageList);
+						x.imageList = "http://yaqin.ckun.vip/"+x.imageList.split(',')[2]
+						
+					}
+					console.log(this.list)
+				}).catch(error=>{
+          console.log(error)
+        })
 			}
-			
    	},
 	}
 </script>

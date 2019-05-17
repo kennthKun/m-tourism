@@ -18,7 +18,7 @@
 			}
 		},
 		created(){
-			console.log(this.$route.name)
+			console.log(this.$route)
 			this.title = this.$route.name
 		},
 		methods:{

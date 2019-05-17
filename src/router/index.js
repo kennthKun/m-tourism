@@ -9,6 +9,8 @@ import spots from '@/components/page/spots/all'//买门票
 import spotsList from '@/components/page/spots/list'//门票列表
 import spotsDetails from '@/components/page/spots/details'//门票列表
 
+import raidersDetails from '@/components/page/raiders/detail'//攻略详情
+
 import hotels from '@/components/page/hotels/all'//酒店
 import foods from '@/components/page/foods/all'//美食
 import lines from '@/components/page/lines/all'//路线
@@ -79,6 +81,10 @@ export default new Router({
       path: '/raiders/all',
       component: raiders,
       name:'攻略',
+    },{
+    		path:'/raiders/details',
+    		component: raidersDetails,
+      	name:'攻略详情',
     }
   ]
 })

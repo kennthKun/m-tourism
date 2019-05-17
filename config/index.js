@@ -19,6 +19,14 @@ module.exports = {
         pathRewrite:{
           '^/api':'/'
         }
+      },'/api2/**': {
+//      target: 'http://localhost:3000/',
+        target: 'http://yaqin.ckun.vip:3002/',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite:{
+          '^/api2':'/'
+        }
       },
     },
 

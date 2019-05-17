@@ -13,22 +13,22 @@
 			<div class="spots_tit"><img style="width: 95%;" src="@/assets/pic/download-8.png"/></div>
 			<div class="content-block">
 				<div class="list">
-					<img src="https://www.0744.cn/uploads/2016/0926/99c4bf6cdc572b0aa7cee4be56a80444_320x458.jpg"/>
+					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806518036&di=1b95c3be3c5d9dc80866e8f721113a4c&imgtype=0&src=http%3A%2F%2Fimg.redocn.com%2Fsheji%2F20160527%2Fshanxilvyouhaibaosheji_6396115.jpg"/>
 				</div>
 				<div class="list">
 					<div class="t_box" style="margin-bottom: 0.6rem;">
-						<img src="https://www.0744.cn/uploads/2016/0926/5e0d6cf1488357d50fbecb7ecb065b86_320x210.jpg"/>
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806518035&di=4b9dda44745347fbeaf484f0980f2cd5&imgtype=0&src=http%3A%2F%2Fdimg04.c-ctrip.com%2Fimages%2F30040s000000hui7rB860.jpg"/>
 					</div>
 					<div class="t_box">
-						<img src="https://www.0744.cn/uploads/2016/0926/cc8d3b1247b512d3f6b7c8dde6fb1096_320x210.jpg"/>
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806518035&di=93f3e0ff15173fc5c93159d02f363bd7&imgtype=0&src=http%3A%2F%2Fwww.sx.xinhuanet.com%2Ftitlepic%2F112264%2F1122643052_1522977381487_title0h.jpg"/>
 					</div>
 				</div>
 				<div class="list">
 					<div class="t_box" style="margin-bottom: 0.6rem;">
-						<img src="https://www.0744.cn/uploads/2016/0926/a1f370295803f1bc331791440dad1c34_320x210.jpg"/>
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806518027&di=e77576805bc64fce236e1d740dea0589&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F50%2F40%2F28300542261568144400400050568_950.jpg"/>
 					</div>
 					<div class="t_box">
-						<img src="https://www.0744.cn/uploads/2016/0926/add97bc2ec7d385ebe9495d5f96d89a1_320x210.jpg"/>
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806518027&di=ba11f7ba40badf3b2b900922b2560ed1&imgtype=0&src=http%3A%2F%2Fmy.tmyou.com%2Fpublic%2Fupload%2Fimages%2F2016-07-14%2F20160714094854327623.jpg"/>
 					</div>
 				</div>
 			</div>
@@ -37,10 +37,10 @@
 			<div class="spots_tit"><img style="width: 95%;" src="@/assets/pic/download-9.png"/></div>
 			<div class="content-block">
 				<div class="list">
-					<img src="https://www.0744.cn/uploads/2016/0922/c42cf713fdbeb937fd26ca3b968ad887_490x300.jpg"/>
+					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806621980&di=0bbcc91ec79009b07edbb1222bb5575f&imgtype=0&src=http%3A%2F%2Fwww.ytszg.com%2Ffile%2FnewsImg%2Fimage%2F20150414%2F20150414111237_2529.jpg"/>
 				</div>
 				<div class="list">
-					<img src="https://www.0744.cn/uploads/2016/0922/728f37c1dafc5a34f4ae2b131c3fb8fe_490x300.jpg"/>
+					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806621979&di=48779e9bb5f737948b065d561a95b44e&imgtype=0&src=http%3A%2F%2Fimage.cnpp.cn%2Fupload%2Fimages%2F20170502%2F1493716200_20230_3.jpg"/>
 				</div>
 			</div>
 		</div>
@@ -48,23 +48,23 @@
 			<div class="spots_tit"><img style="width: 95%;" src="@/assets/pic/download-10.png"/></div>
 			<div class="content-block">
 				<div class="list">
-					<img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_308x190.jpg" alt="" />
+					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806945777&di=b8d57a1096aa0335f015473122861654&imgtype=0&src=http%3A%2F%2Fm.tuniucdn.com%2Ffb2%2Ft1%2FG5%2FM00%2F22%2FFA%2FCii-s1pCKG-IIOZRAAM4TUdGIz0AABW8QHBjjcAAzhl400_w640_h480_c1_t0.jpg" alt="" />
 					<div class="text">
-						<p class="introduce">张家界大成山水国际大酒店（市区）</p>
+						<p class="introduce">维也纳国际大酒店（市区）</p>
 						<p class="money">¥<span>368</span>起</p>
 					</div>
 				</div>
 				<div class="list">
-					<img src="https://www.0744.cn/uploads/2019/0316/2f03f445656db604f5cf3df716d4cda1_308x190.jpg" alt="" />
+					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806692603&di=6139e5494349f6dd7ea14deaf6b1bdf7&imgtype=0&src=http%3A%2F%2Fdimg09.c-ctrip.com%2Fimages%2F100j0m000000dbm383CCE_R_1024_10000_Q90.jpg" alt="" />
 					<div class="text">
-						<p class="introduce">张家界大成山水国际大酒店（市区）</p>
+						<p class="introduce">山西大成山水国际酒店（市区）</p>
 						<p class="money"></p>
 					</div>
 				</div>
 				<div class="list">
-					<img src="https://www.0744.cn/uploads/2018/0526/7a451fe411e5646057d375f23f520b94_308x190.jpg" alt="" />
+					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557806692593&di=d0506f00d6c16b0578b055e92ee1b244&imgtype=0&src=http%3A%2F%2Fp.lechengol.com%2FH103764%2FMax_09834709661d4401b9f1448bddd1ba13.jpg" alt="" />
 					<div class="text">
-						<p class="introduce">张家界大成山水国际大酒店（市区）</p>
+						<p class="introduce">晋祠宾馆（市区）</p>
 						<p class="money">¥<span>310</span>起</p>
 					</div>
 				</div>
@@ -85,7 +85,7 @@
 					</div>
 					<div class="item-inner">
 						<div class="item-title-row">
-							慢游张家界“最”之旅
+							慢游山西“最”之旅
 						</div>
 						<div class="item-text">
 							还记得Iseeyou的阿凡达吗？记得岩石漂浮的哈利路亚山吗？看我的骄傲脸，这个暑假不必舍近…

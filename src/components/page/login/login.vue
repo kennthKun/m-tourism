@@ -27,16 +27,17 @@
         	params.append('password',this.password);
         	console.log(params)
         	
-				this.axios.post('/login', params)
+				this.axios.post('/api/login', params)
 				.then(response=>{
 					console.log(response)
 					if(response.data.code == 0){
 						this.$router.push({
 			        path:'/'
 						});
-						localStorage.setItem("userID",123456)
+						localStorage.setItem("userInfo",JSON.stringify(response.data.data))
 					}else{
 						alert(response.data.data)
+						localStorage.removeItem("userInfo")			
 					}
 				}).catch(error=>{
           console.log(error)
