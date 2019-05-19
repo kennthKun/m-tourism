@@ -54,10 +54,11 @@
 				this.axios.get('/api/scenic/api?type='+this.$route.query.type)
 				.then(response=>{
 					this.list = response.data.data
+					console.log(response.data.data)
 					for (let x of this.list){
+						x.imageList = x.imageList.substr(1)
+						x.imageList = x.imageList?"http://yaqin.ckun.vip/"+x.imageList.split(',')[0]:"http://yaqin.ckun.vip/pic/wu-1557902128821.jpg"
 						console.log(x.imageList);
-						x.imageList = "http://yaqin.ckun.vip/"+x.imageList.split(',')[2]
-						
 					}
 					console.log(this.list)
 				}).catch(error=>{
