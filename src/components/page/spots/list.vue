@@ -18,6 +18,7 @@
 			</li>
 			
 		</ul>
+		<page-null v-if="list.length <= 0"></page-null>
 		<!--<clearfix></clearfix>
 		<div style="height: 2.5rem;"></div>-->
 	</div>
@@ -26,6 +27,7 @@
 <script>
 	import searchView from '@/components/common/search'
 	import topTitle from '@/components/common/topTitle'
+	import pageNull from '@/components/common/null'
 //	import clearfix from '@/components/common/clearfix'
 	export default{
 		name:'spotsList',
@@ -40,7 +42,7 @@
 			this.getlist()
 		},
 		components:{
-			searchView,topTitle
+			searchView,topTitle,pageNull
 		},
 		methods: {
 			jump(id){

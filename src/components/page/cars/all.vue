@@ -12,6 +12,7 @@
 				</div>
 			</li>
 		</ul>
+		<page-null v-if="list.length <= 0"></page-null>
 		<!--<clearfix></clearfix>-->
 		<div style="height: 2.5rem;"></div>
 	</div>
@@ -20,7 +21,7 @@
 <script>
 	import searchView from '@/components/common/search'
 	import topTitle from '@/components/common/topTitle'
-//	import clearfix from '@/components/common/clearfix'
+	import pageNull from '@/components/common/null'
 	export default{
 		name:'',
 		data(){
@@ -35,7 +36,7 @@
 			this.getlist()
 		},
 		components:{
-			searchView,topTitle
+			searchView,topTitle,pageNull
 		},
 		methods: {
 			jump(id){
@@ -44,7 +45,8 @@
 				})
 			},
 			getlist(){
-				this.axios.get('api2/drivers/api')
+				var url = this.$route.query.id?'api/drivers/api2?id='+this.$route.query.id:'api2/drivers/api'
+				this.axios.get(url)
 				.then(response=>{
 					this.list = response.data.data
 					for (let x of this.list){

@@ -25,17 +25,17 @@
 			<div class="name_price"><span class="name">{{list.name}}</span><span class="price">¥{{list.price}}</span></div>
 			<div class="praise_collection"><span><i class="yaqin yq_dianzan1"></i>已有<b>{{list.praise}}</b>人点赞</span></div>
 		</div>
-		<router-link to="" slot="left">
+		<router-link :to="'/guiders/all?id='+$route.query.id" slot="left">
 		<div class="content_box content_2" style="border-width: 1px;">
 			<div>联系导游</div><span class="yaqin yq_jiantou"></span>
 		</div>
 		</router-link>
-		<router-link to="" slot="left">
+		<router-link :to="'/cars/all?id='+$route.query.id" slot="left">
 		<div class="content_box content_2" style="border-width: 1px;">
 			<div>联系司机</div><span class="yaqin yq_jiantou"></span>
 		</div>
 		</router-link>
-		<router-link to="" slot="left">
+		<router-link :to="'/hotels/all?id='+$route.query.id" slot="left">
 		<div class="content_box content_2">
 			<div>查看酒店</div><span class="yaqin yq_jiantou"></span>
 		</div>
@@ -163,7 +163,7 @@
 				this.axios.get('/api/scenic/detail?id='+this.$route.query.id)
 				.then(response=>{
 					this.list = response.data.data[0]
-					let imglist = this.list.imageList.split(',')
+					let imglist = this.list.imageList.substr(1).split(',')
 					for(let x in imglist){
 						imglist[x] = imglist[x]?"http://yaqin.ckun.vip/"+imglist[x]:"http://yaqin.ckun.vip/pic/wu-1557902128821.jpg"
 					}

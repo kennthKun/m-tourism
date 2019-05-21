@@ -12,6 +12,7 @@
 				</div>
 			</li>
 		</ul>
+		<page-null v-if="list.length <= 0"></page-null>
 		<!--<clearfix></clearfix>-->
 		<div style="height: 2.5rem;"></div>
 	</div>
@@ -20,6 +21,7 @@
 <script>
 	import searchView from '@/components/common/search'
 	import topTitle from '@/components/common/topTitle'
+	import pageNull from '@/components/common/null'
 //	import clearfix from '@/components/common/clearfix'
 	export default{
 		name:'',
@@ -35,7 +37,7 @@
 			this.getlist()
 		},
 		components:{
-			searchView,topTitle
+			searchView,topTitle,pageNull
 		},
 		methods: {
 			jump(id){
@@ -44,13 +46,14 @@
 				})
 			},
 			getlist(){
-				this.axios.get('api2/guides/api')
+				var url = this.$route.query.id?'api/guides/api2?id='+this.$route.query.id:'api2/guides/api'
+				this.axios.get(url)
 				.then(response=>{
 					this.list = response.data.data
 					console.log(this.list)
 					for (let x of this.list){
-						console.log(x.imageList)
-						x.imageList = x.imageList&&x.imageList.split(',')[0]?"http://yaqin.ckun.vip/"+x.imageList.split(',')[0]:"http://yaqin.ckun.vip/pic/wu-1557902128821.jpg"
+						console.log(x.imageList.split(','))
+						x.imageList = x.imageList.split(',')[0]?"http://yaqin.ckun.vip/"+x.imageList.split(',')[0]:"http://yaqin.ckun.vip/pic/wu-1557902128821.jpg"
 						var d = x.display_time
 					}
 				}).catch(error=>{
