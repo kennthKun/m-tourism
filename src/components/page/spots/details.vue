@@ -23,15 +23,29 @@
 		</div>
 		<div class="content_box">
 			<div class="name_price"><span class="name">{{list.name}}</span><span class="price">¥{{list.price}}</span></div>
-			<div class="praise_collection"><span><i class="yaqin yq_dianzan1"></i>已有<b>{{list.praise}}</b>人点赞</span><span><i class="yaqin yq_collection-b"></i>已有<b>{{list.collection}}</b>人收藏</span></div>
+			<div class="praise_collection"><span><i class="yaqin yq_dianzan1"></i>已有<b>{{list.praise}}</b>人点赞</span></div>
 		</div>
-		
+		<router-link to="" slot="left">
+		<div class="content_box content_2" style="border-width: 1px;">
+			<div>联系导游</div><span class="yaqin yq_jiantou"></span>
+		</div>
+		</router-link>
+		<router-link to="" slot="left">
+		<div class="content_box content_2" style="border-width: 1px;">
+			<div>联系司机</div><span class="yaqin yq_jiantou"></span>
+		</div>
+		</router-link>
+		<router-link to="" slot="left">
+		<div class="content_box content_2">
+			<div>查看酒店</div><span class="yaqin yq_jiantou"></span>
+		</div>
+		</router-link>
 		<div id="xiangqing" v-html="list.introduce"></div>
 		<div style="height: 60px;"></div>
 		<div id="bot_btn">
-			<div class="btn_price" @click="price(1)"><span class="yaqin yq_dianzan1"></span><p>收藏</p></div>
+			<div class="btn_price" @click="Collectionbtn"><span class="yaqin yq_dianzan1"></span><p>{{isShoucang?"已收藏":"收藏"}}</p></div>
 			<div class="btn_collection" @click="price(2)"><span class="yaqin yq_collection-b"></span><p>点赞</p></div>
-			<div class="reservation">评论</div>
+			<div class="reservation" @click="comments">评论</div>
 		</div>
 	</div>
 </template>
@@ -43,6 +57,7 @@
 		data(){
 			return{
 				title:'',
+				isShoucang:0,
 				userInfo:[],
 				list:[],
 				mark: 0,
@@ -64,19 +79,60 @@
 			}
 		},
 		created(){
-			console.log(localStorage.getItem("userInfo"))
 			this.userInfo = JSON.parse(localStorage.getItem("userInfo")) 
-			console.log(this.userInfo)
+			this.axios.get('/api/user/info?id='+this.userInfo.id)
+			.then(response=>{
+				console.log(response)
+				if(response.status == 200){
+					this.userInfo = response.data.data[0]
+					localStorage.setItem("userInfo",JSON.stringify(response.data.data[0]))
+					console.log(response.data.data[0].scenicarr_id.split(','))
+					let id = ''+this.$route.query.id
+					console.log(response.data.data[0].scenicarr_id.split(',').indexOf(id))
+					this.isShoucang = response.data.data[0].scenicarr_id.split(',').indexOf(id)>=0?1:0
+					console.log(this.isShoucang)
+				}
+			}).catch(error=>{
+        console.log(error)
+      })
 			this.getlist()
 			this.play()
 		},
 		components:{topTitle},
 		methods: {
+			Collectionbtn(){
+				var scen_id = this.userInfo.scenicarr_id
+				var scenicarr_id2 = scen_id?scen_id.split(','):[];
+				var sid = '';
+				let id = this.$route.query.id
+				if(scenicarr_id2.indexOf(id)>=0){
+					scenicarr_id2.splice(scenicarr_id2.indexOf(id),1)
+					sid = scenicarr_id2
+				}else{
+					let id2 = id
+					scenicarr_id2.push(id2)
+					sid = scenicarr_id2
+				}
+				this.axios.get('/api/scenic/Collection?sid='+sid+'&id='+this.userInfo.id)
+				.then(response=>{
+					if(response.status == 200){
+						this.axios.get('/api/user/info?id='+this.userInfo.id)
+						.then(response=>{
+							if(response.status == 200){
+								this.userInfo = response.data.data[0]
+								this.isShoucang = response.data.data[0].scenicarr_id.split(',').indexOf(id)>=0?1:0
+							}
+						}).catch(error=>{
+		          console.log(error)
+		        })
+					}
+				}).catch(error=>{
+          console.log(error)
+        })
+			},
 			price(type){
-				
 				this.axios.get('/api/scenic/price?id='+this.$route.query.id+'&type='+type)
 				.then(response=>{
-					console.log(response)
 					if(response.status == 200){
 						this.getlist()
 					}
@@ -86,6 +142,11 @@
 			},
 			back(){
 				this.$router.go(-1);
+			},
+			comments(){
+				this.$router.push({
+			        path:'/comments?id='+this.$route.query.id
+						})
 			},
 			mycenter(){
 				this.$router.push({
@@ -98,30 +159,18 @@
           path:'/spots/spotsDetails?id='+id
 				})
 			},
-			getlist2(){
-				this.axios.get('/api/scenic/comments?id='+this.$route.query.id)
-				.then(response=>{
-					console.log(response)
-//					this.list.imageList = "http://yaqin.ckun.vip/"+x.imageList.split(',')[2]
-					
-				}).catch(error=>{
-          console.log(error)
-        })
-			},
 			getlist(){
 				this.axios.get('/api/scenic/detail?id='+this.$route.query.id)
 				.then(response=>{
 					this.list = response.data.data[0]
 					let imglist = this.list.imageList.split(',')
 					for(let x in imglist){
-						imglist[x] = "http://yaqin.ckun.vip/"+imglist[x]
+						imglist[x] = imglist[x]?"http://yaqin.ckun.vip/"+imglist[x]:"http://yaqin.ckun.vip/pic/wu-1557902128821.jpg"
 					}
 					this.title = this.list.name
 					this.img = imglist
 					this.list.imageList = imglist
 					console.log(this.list)
-//					this.list.imageList = "http://yaqin.ckun.vip/"+x.imageList.split(',')[2]
-					
 				}).catch(error=>{
           console.log(error)
         })
@@ -273,4 +322,5 @@
 	.mint-header{
 		height: 2.2rem;line-height: 2.2rem;color: #FFF;background-color: #006f3e;
 	}
+	.content_2{display: flex;justify-content: space-between;color: #333;}
 </style>

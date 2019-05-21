@@ -41,6 +41,7 @@
 					}
 				}).catch(error=>{
           console.log(error)
+          alert("登录失败，用户名或密码错误！")
         })
 
 			}

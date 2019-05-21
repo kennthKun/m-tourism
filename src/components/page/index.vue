@@ -4,9 +4,12 @@
 		<div class="item-content"></div>
 		<div class="nav-box">
 			<div class="nav-list" v-for="item in navImg">
-				<router-link :to="item.path">
+				<router-link v-if="item.path!='luxian'" :to="item.path">
 					<img class="nav-img" :src="item.img" alt="" />
 				</router-link>
+				<div v-if="item.path=='luxian'" @click="luxian">
+					<img class="nav-img" :src="item.img" alt="" />
+				</div>
 			</div>
 		</div>
 		<div class="ticket_main">
@@ -74,8 +77,7 @@
 			<div class="spots_tit">
 				<mt-navbar v-model="selected">
 				  <mt-tab-item id="1">游记攻略</mt-tab-item>
-				  <mt-tab-item id="2">旅游问答</mt-tab-item>
-				  <mt-tab-item id="3">旅游资讯</mt-tab-item>
+				  <mt-tab-item id="2">特产美食</mt-tab-item>
 				</mt-navbar>
 			</div>
 			<div class="tabs">
@@ -128,16 +130,18 @@
 					{img:'../../../static/pic/download-7.png',path:'/spots/all'},
 					{img:'../../../static/pic/download-6.png',path:'/hotels/all'},
 					{img:'../../../static/pic/download-5.png',path:'/foods/all'},
-					{img:'../../../static/pic/download-4.png',path:'/lines/all'},
 					{img:'../../../static/pic/download-3.png',path:'/guiders/all'},
 					{img:'../../../static/pic/download-2.png',path:'/cars/all'},
 					{img:'../../../static/pic/download-1.png',path:'/specialty/all'},
 					{img:'../../../static/pic/download.png',path:'/raiders/all'},
+					{img:'../../../static/pic/download-4.png',path:'luxian'},
 				]
 			}
 		},
 		methods: {
-			
+			luxian(){
+				alert("功能暂未开放！")
+			}
    	},
 		components: {headerBanner,footerNav,clearfix},
 	}

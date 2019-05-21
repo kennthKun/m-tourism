@@ -3,37 +3,12 @@
 		<top-title></top-title>
 		<search-view></search-view>
 		<ul class="result_list">
-			<li class="item-li" @click="jump">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
+			<li class="item-li" @click="jump(item.id)" v-for="item in list">
+				<div class="item-img"><img :src="item.imageList"/></div>
 				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
-				</div>
-			</li>
-			
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
-				</div>
-			</li>
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
-				</div>
-			</li>
-			<li class="item-li">
-				<div class="item-img"><img src="https://www.0744.cn/uploads/2016/0921/a2227766b767f279ee54a4cee3a79197_200x140.jpg"/></div>
-				<div class="item-center">
-					<div class="item-title-row">张家界核心景区武陵源</div>
-					<div class="item-subtitle">100% 满意</div>
-					<div class="item-subtitle">特色客栈</div>
+					<div class="item-title-row">{{item.name}}</div>
+					<div class="item-subtitle">电话:{{item.phone}}</div>
+					<div class="item-subtitle">地址：{{item.address}}</div>
 				</div>
 			</li>
 		</ul>
@@ -50,20 +25,35 @@
 		name:'',
 		data(){
 			return{
-				title:''
+				title:'',
+				list:[]
 			}
 		},
 		created(){
-			this.title = this.$route.name
+//			this.title = this.$route.name
+			console.log(111)
+			this.getlist()
 		},
 		components:{
 			searchView,topTitle
 		},
 		methods: {
-			jump(){
+			jump(id){
 				this.$router.push({
-          path:'/spots/spotsDetails'
+          path:'/cars/detail?id='+id
 				})
+			},
+			getlist(){
+				this.axios.get('api2/drivers/api')
+				.then(response=>{
+					this.list = response.data.data
+					for (let x of this.list){
+						x.imageList = x.imageList.split(',')[0]?"http://yaqin.ckun.vip/"+x.imageList.split(',')[0]:"http://yaqin.ckun.vip/pic/wu-1557902128821.jpg"
+						var d = x.display_time
+					}
+				}).catch(error=>{
+          console.log(error)
+        })
 			}
 			
    	},
@@ -75,7 +65,7 @@ $color1:#ece6d4;
 #spotslist{height: 100%;background: $color1;}
 .result_list .item-li{box-sizing: border-box;position: relative;clear: both;background: #fff;overflow: hidden;font-size: 14px;margin-bottom: 10px;padding: 12px;border-bottom: 1px solid #D9CDB4;margin-bottom: 10px;display: flex;align-items: center;
 	.item-img{height: 68px;overflow: hidden;width: 100px;img{width: 100%;}}
-	.item-center{height: 68px;display: flex;flex: 1;flex-direction:column;text-align: left;justify-content: space-between;margin: 0 5px;
+	.item-center{width: 70%;height: 68px;display: flex;flex: 1;flex-direction:column;text-align: left;justify-content: space-between;margin: 0 5px;
 		.item-title-row{white-space: normal;font-size: 14px;max-height: 20px;overflow: hidden;max-height: 40px;color: #333;line-height: 20px;}
 		.item-subtitle{position: relative;overflow: hidden; white-space: nowrap;max-width: 100%;text-overflow: ellipsis;font-size: 12px;color: #aaaaaa;}
 		.attr span{font-size: 12px;padding: 1px 3px;border: 1px solid #e1d8c5;background: #f2efe7;color: #999;border-radius: 3px;margin-right: 5px;}

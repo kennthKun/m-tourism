@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<top-title></top-title>
-		<search-view></search-view>
+		<router-link to="/spots/spotsList?type=0"><search-view></search-view></router-link>
 		<header-banner></header-banner>
 		<div class="nav-box">
 			<div class="nav-list" v-for="item in navImg">
