@@ -44,7 +44,7 @@
 		<div style="height: 60px;"></div>
 		<div id="bot_btn">
 			<div class="btn_price" @click="Collectionbtn"><span class="yaqin yq_dianzan1"></span><p>{{isShoucang?"已收藏":"收藏"}}</p></div>
-			<div class="btn_collection" @click="price(2)"><span class="yaqin yq_collection-b"></span><p>点赞</p></div>
+			<div class="btn_collection" @click="price(1)"><span class="yaqin yq_collection-b"></span><p>点赞</p></div>
 			<div class="reservation" @click="comments">评论</div>
 		</div>
 	</div>
